@@ -1,0 +1,30 @@
+### In Web.Config file, inside of <configuration>
+
+<appSettings>
+	<add key="key1" value="This text is extract from Web.Config file."/>
+	<add key="key2" value=" "/>
+</appSettings>
+
+
+### In UserForm.aspx Created buttons and label to extract string from Web.config
+
+<asp:Label ID="labelWebConfig" runat="server"></asp:Label> 
+
+<asp:Button ID="BtnShow" runat="server" Text="Show" OnClick="BtnShow_Click" />  // button to show
+<asp:Button ID="BtnHide" runat="server" Text="Hide" OnClick="BtnHide_Click" />  // button to hide
+
+
+### In UserForm.aspx.cs file, from where I want to access the data. 
+
+string conValue1 = ConfigurationManager.AppSettings["key1"];
+string conValue2 = ConfigurationManager.AppSettings["key2"];
+
+protected void BtnShow_Click(object sender, EventArgs e) 
+{
+      labelWebConfig.Text = conValue1;
+}
+
+protected void BtnHide_Click(object sender, EventArgs e)  
+{
+      labelWebConfig.Text = conValue2;
+}
